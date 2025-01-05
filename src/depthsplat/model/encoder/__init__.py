@@ -3,10 +3,9 @@ from typing import Optional
 from .encoder import Encoder
 from .encoder_depthsplat import EncoderDepthSplat, EncoderDepthSplatCfg
 from .visualization.encoder_visualizer import EncoderVisualizer
-from .visualization.encoder_visualizer_depthsplat import EncoderVisualizerDepthSplat
 
 ENCODERS = {
-    "depthsplat": (EncoderDepthSplat, EncoderVisualizerDepthSplat),
+    "depthsplat": (EncoderDepthSplat, None),
 }
 
 EncoderCfg = EncoderDepthSplatCfg

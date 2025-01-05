@@ -12,7 +12,6 @@ from ...geometry.projection import sample_image_grid
 from ..types import Gaussians
 from .common.gaussian_adapter import GaussianAdapter, GaussianAdapterCfg
 from .encoder import Encoder
-from .visualization.encoder_visualizer_depthsplat_cfg import EncoderVisualizerDepthSplatCfg
 
 import torchvision.transforms as T
 import torch.nn.functional as F
@@ -36,7 +35,6 @@ class EncoderDepthSplatCfg:
     d_feature: int
     num_depth_candidates: int
     num_surfaces: int
-    visualizer: EncoderVisualizerDepthSplatCfg
     gaussian_adapter: GaussianAdapterCfg
     opacity_mapping: OpacityMappingCfg
     gaussians_per_pixel: int
