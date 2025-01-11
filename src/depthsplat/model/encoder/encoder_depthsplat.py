@@ -7,7 +7,7 @@ from jaxtyping import Float
 from torch import Tensor, nn
 
 from ...dataset.shims.patch_shim import apply_patch_shim
-from ...dataset.types import BatchedExample, DataShim
+from ...dataset.types import BatchedExample, DataShim,BatchedViews
 from ...geometry.projection import sample_image_grid
 from ..types import Gaussians
 from .common.gaussian_adapter import GaussianAdapter, GaussianAdapterCfg
@@ -180,11 +180,8 @@ class EncoderDepthSplat(Encoder[EncoderDepthSplatCfg]):
 
     def forward(
         self,
-        context: dict,
-        global_step: int,
-        deterministic: bool = False,
+        context: BatchedViews,
         visualization_dump: Optional[dict] = None,
-        scene_names: Optional[list] = None,
     ):
         device = context["image"].device
         b, v, _, h, w = context["image"].shape
